@@ -1,0 +1,14 @@
+<h2>ファイルアップロード</h2>
+<%= form_for @photo, url: upload_photos_path, html: { multipart: true } do |f| %>
+  <div>
+    <label>ファイル</label>
+    <%= f.file_field :file %>
+  </div>
+  <div>
+    <label>認識タイプ</label>
+    <%= select_tag 'detection_type', options_for_select([['Label', 'label'], ['Text', 'text']]) %>
+  </div>
+  <div>
+    <%= f.submit 'アップロード' %>
+  </div>
+<% end %>
